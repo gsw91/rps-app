@@ -1,5 +1,6 @@
 package com.rps.gameConfiguration;
 
+import com.rps.dbConnection.ExportScore;
 import com.rps.gameSystem.*;
 import com.rps.players.ComputerPlayerProcess;
 import com.rps.players.HumanPlayerName;
@@ -31,7 +32,16 @@ public final class GameConfiguration {
         ComputerPlayerProcess computerPlayerProcess = new ComputerPlayerProcess();
 
         ScoreComparision comparision = new ScoreComparision();
-        comparision.compareScore(humanPlayerProcess, computerPlayerProcess, gameLimit,0,0, level);
+
+        Integer[] beginningScores = gameInformation.resetScores();
+
+        String[] resultOfGame = comparision.compareScore(humanPlayerProcess, computerPlayerProcess, gameLimit, beginningScores[0], beginningScores[1], level);
+
+        ExportScore exportScore = new ExportScore();
+        exportScore.exportScore(resultOfGame[1], resultOfGame[2], humanPlayerProcess.getPlayerName(), level, resultOfGame[0]);
+
+        EndOfGame endOfGame = new EndOfGame();
+        endOfGame.endingGame();
 
     }
 

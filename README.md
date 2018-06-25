@@ -17,6 +17,9 @@ com.rps
 
             -newbie -    80% chance of winning, 10% chanse of losing, 10% chanse of getting a tie
 
+        - expoting score to  mySql database
+
+
 com.rps2 (game extension)
 
         - extented version includes five figures: rock, paper, scissors, spock and lizard
@@ -35,4 +38,12 @@ com.rps2 (game extension)
 
 com.statistics (will be created)
 
-        - small rest-app enhancement, exporting scores into data base mySQL and checking statistics (in preparation)
+        - rest-app enhancement, currently can see all scores and counts games (statistics in preparation)
+
+            -first run StatisticsApplication in com.statistics package
+
+            -see all scores by sending a request : http://localhost:8080/rps/scores/
+
+            -count all games by sending a request : http://localhost:8080/rps/count/
+
+            -adding a new result to data base is only possible by playing a game!!!

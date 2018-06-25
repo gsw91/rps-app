@@ -1,6 +1,7 @@
 package com.rps;
 
 import com.rps.gameConfiguration.GameConfiguration;
+import com.statistics.StatisticsApplication;
 
 public class RpsRunner {
 

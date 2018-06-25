@@ -10,7 +10,7 @@ public class ScoreComparision {
     private static final String WIN = "You win! \n";
     private static final String LOSE = "You lost! \n";
 
-    public void compareScore(HumanPlayerProcess humanPlayerProcess, ComputerPlayerProcess computerPlayerProcess, int gameLimit, int startHumanPlayerScore, int startComputerScore, String difficultyLevel) {
+    public String[] compareScore(HumanPlayerProcess humanPlayerProcess, ComputerPlayerProcess computerPlayerProcess, int gameLimit, int startHumanPlayerScore, int startComputerScore, String difficultyLevel) {
 
         boolean doWeFinished = false;
         while (!doWeFinished) {
@@ -20,8 +20,7 @@ public class ScoreComparision {
             if (startHumanPlayerScore == gameLimit || startComputerScore == gameLimit) {
 
                 gameInformation.checkScore(startHumanPlayerScore, gameLimit);
-                EndOfGame endOfGame = new EndOfGame();
-                endOfGame.endingGame();
+                doWeFinished = true;
 
             } else {
 
@@ -100,7 +99,19 @@ public class ScoreComparision {
             }
 
         }
-
+        if (startHumanPlayerScore>startComputerScore) {
+            String[] scores = new String[3];
+            scores[0] = "win";
+            scores[1] = String.valueOf(startHumanPlayerScore);
+            scores[2] = String.valueOf(startComputerScore);
+            return scores;
+        } else {
+            String[] scores = new String[3];
+            scores[0] = "loss";
+            scores[1] = String.valueOf(startHumanPlayerScore);
+            scores[2] = String.valueOf(startComputerScore);
+            return scores;
+        }
     }
 
 }

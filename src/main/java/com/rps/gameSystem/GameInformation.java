@@ -1,5 +1,6 @@
 package com.rps.gameSystem;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Scanner;
 
 public final class GameInformation {
@@ -104,6 +105,13 @@ public final class GameInformation {
             System.out.println("\nYou lost with a computer...\n");
         }
 
+    }
+
+    public Integer[] resetScores (){
+        Integer[] scores = new Integer[2];
+        scores[0] = 0;
+        scores[1] = 0;
+        return scores;
     }
 
 }
