@@ -38,6 +38,8 @@ com.rps2.Rps2Runner (game extension)
 
         -> exporting scores to local mySql database
 
+        -> can check statistics of winning games after playing
+
 
 com.statistics (app to manage scores for rps and rps2)
 

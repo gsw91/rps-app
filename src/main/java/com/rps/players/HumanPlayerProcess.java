@@ -1,5 +1,6 @@
 package com.rps.players;
 
+import com.rps.dbConnection.GameStatistics;
 import com.rps.exceptions.RpsException;
 import com.rps.figures.*;
 import com.rps.gameSystem.*;

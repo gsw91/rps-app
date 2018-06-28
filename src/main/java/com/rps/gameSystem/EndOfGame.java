@@ -13,11 +13,12 @@ public final class EndOfGame {
 
         if (!isThisEnd) {
 
-            System.out.println("\n Game is finished. Put n to play one more time, or x key to exit");
+            System.out.println("\n Game is finished. Put n to play one more time, s to see statistics, or x key to exit");
 
             try {
-
-                gameInformation.exitOrReset(scanner.nextLine());
+                String command = scanner.nextLine();
+                gameInformation.showStatistics(command);
+                gameInformation.exitOrReset(command);
 
             } catch (NumberFormatException e) {
 

@@ -1,5 +1,7 @@
 package com.rps.gameSystem;
 
+import com.rps.dbConnection.GameStatistics;
+
 import java.util.Scanner;
 
 public final class GameInformation {
@@ -15,7 +17,8 @@ public final class GameInformation {
                 "press 2 to throw Paper \n" +
                 "press 3 to throw Scissors \n" +
                 "press x to end the game \n" +
-                "press n to restart the game \n");
+                "press n to restart the game \n" +
+                "if the game is completed you can see statistics \n");
     }
 
     public final void infoInsertQuantityOfROunds() {
@@ -34,6 +37,15 @@ public final class GameInformation {
             }
         }
         return Integer.parseInt(getLimit);
+    }
+
+    public final void showStatistics(String command) throws NumberFormatException {
+        if (command.equals("s")) {
+            GameStatistics statistics = new GameStatistics();
+            statistics.getBasicStatistics();
+            EndOfGame endOfGame = new EndOfGame();
+            endOfGame.endingGame();
+        }
     }
 
     public final void exitOrReset(String command) throws NumberFormatException {
