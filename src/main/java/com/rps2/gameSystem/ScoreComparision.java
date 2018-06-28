@@ -24,26 +24,19 @@ public class ScoreComparision {
     private static final String PAPER_VS_SPOCK = " Paper proves spock's error!\n";
     private static final String LIZARD_VS_SPOCK = " Lizard poisons the spock!\n";
 
-    public void compareScore(HumanPlayerProcess humanPlayerProcess, ComputerPlayerProcess computerPlayerProcess, int gameLimit, int startHumanPlayerScore, int startComputerScore, String difficultyLevel) {
+    public String[] compareScore(HumanPlayerProcess humanPlayerProcess, ComputerPlayerProcess computerPlayerProcess, int gameLimit, int startHumanPlayerScore, int startComputerScore, String difficultyLevel) {
 
         boolean doWeFinished = false;
         while (!doWeFinished) {
-
             GameInformation gameInformation = new GameInformation();
-
             if (startHumanPlayerScore == gameLimit || startComputerScore == gameLimit) {
-
                 gameInformation.checkScore(startHumanPlayerScore, gameLimit);
-                EndOfGame endOfGame = new EndOfGame();
-                endOfGame.endingGame();
-
+                doWeFinished = true;
             } else {
 
                 try {
-
                     String player1Figure = humanPlayerProcess.showFigure();
                     String player2Figure = null;
-
                     switch (difficultyLevel) {
                         case DifficultyLevel.VERYHARD:
                             player2Figure = computerPlayerProcess.showFigureLvlVeryHard(player1Figure);
@@ -164,17 +157,25 @@ public class ScoreComparision {
                             }
                         }
                     }
-
                     System.out.println("Your score: " + startHumanPlayerScore + " vs. computer score: " + startComputerScore + "\n");
-
                 } catch (RpsException e) {
                     System.out.println(e.getMessage());
                 }
-
             }
-
         }
-
+        if (startHumanPlayerScore>startComputerScore) {
+            String[] scores = new String[3];
+            scores[0] = "win";
+            scores[1] = String.valueOf(startHumanPlayerScore);
+            scores[2] = String.valueOf(startComputerScore);
+            return scores;
+        } else {
+            String[] scores = new String[3];
+            scores[0] = "loss";
+            scores[1] = String.valueOf(startHumanPlayerScore);
+            scores[2] = String.valueOf(startComputerScore);
+            return scores;
+        }
     }
 
 }

@@ -2,9 +2,11 @@ package com.rps2.gameConfiguration;
 
 import com.rps.gameSystem.*;
 import com.rps.players.HumanPlayerName;
-import com.rps2.players.HumanPlayerProcess;
+import com.rps2.gameSystem.GameInformation;
 import com.rps2.gameSystem.ScoreComparision;
+import com.rps2.players.HumanPlayerProcess;
 import com.rps2.players.ComputerPlayerProcess;
+import com.rps2.dbConnection.Rps2ExportScore;
 
 public final class GameConfiguration {
 
@@ -32,8 +34,15 @@ public final class GameConfiguration {
         ComputerPlayerProcess computerPlayerProcess = new ComputerPlayerProcess();
 
         ScoreComparision scoreComparision = new ScoreComparision();
-        scoreComparision.compareScore(humanPlayerProcess, computerPlayerProcess, gameLimit,0,0, level);
+        Integer[] beginningScores = gameInformation.resetScores();
 
+        String[] resultOfGame = scoreComparision.compareScore(humanPlayerProcess, computerPlayerProcess, gameLimit, beginningScores[0], beginningScores[1], level);
+
+        Rps2ExportScore exportScore = new Rps2ExportScore();
+        exportScore.exportScore(resultOfGame[1], resultOfGame[2], humanPlayerProcess.getPlayerName(), level, resultOfGame[0]);
+
+        EndOfGame endOfGame = new EndOfGame();
+        endOfGame.endingGame();
     }
 
 }

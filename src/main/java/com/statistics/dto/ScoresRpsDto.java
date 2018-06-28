@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class ScoresDto {
+public class ScoresRpsDto {
     private Long game_id;
     private String playerName;
     private String gameLevel;

@@ -1,10 +1,15 @@
-package com.rps.testing.db;
+package com.rps2.testing.db;
 
-import org.junit.*;
-import java.sql.*;
+import org.junit.After;
+import org.junit.Ignore;
+import org.junit.Test;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DbTests {
-
     private String playerName = "testingPlayer";
 
     @After
@@ -13,7 +18,7 @@ public class DbTests {
             DriverManager.registerDriver(new org.gjt.mm.mysql.Driver());
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rps_statistics?serverTimezone=Europe/Warsaw&useSSL=False", "rps_admin", "rpsgame");
             Statement stmt = conn.createStatement();
-            stmt.execute("DELETE FROM RPS_SCORES where PLAYER_NAME = '" + playerName + "'");
+            stmt.execute("DELETE FROM RPS_TWO_SCORES where PLAYER_NAME = '" + playerName + "'");
             stmt.close();
             conn.close();
         } catch (SQLException e) {
@@ -34,7 +39,7 @@ public class DbTests {
             DriverManager.registerDriver(new org.gjt.mm.mysql.Driver());
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rps_statistics?serverTimezone=Europe/Warsaw&useSSL=False", "rps_admin", "rpsgame");
             Statement stmt = conn.createStatement();
-            stmt.executeUpdate("INSERT INTO RPS_SCORES (PLAYER_NAME, GAME_LEVEL, RESULT, ROUNDS_WINNING, ROUNDS_LOSING) " +
+            stmt.executeUpdate("INSERT INTO RPS_TWO_SCORES (PLAYER_NAME, GAME_LEVEL, RESULT, ROUNDS_WINNING, ROUNDS_LOSING) " +
                     "VALUES ('" + playerName + "', '" +level+ "', '" + resultOfGame + "', " + humanScoreConverted + ", " + computerScoreConverted + ");");
             stmt.close();
             conn.close();
@@ -44,3 +49,4 @@ public class DbTests {
     }
 
 }
+

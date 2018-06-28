@@ -1,7 +1,7 @@
 # rps-app
-Rock, paper, scissors application
+Rock, paper, scissors application's project
 
-com.rps
+com.rps.RpsRunner
 
         -> standard version includes three figures: rock, paper and scissors
 
@@ -17,10 +17,10 @@ com.rps
 
             -> newbie -    80% chance of winning, 10% chanse of losing, 10% chanse of getting a tie
 
-        -> exporting scores to  mySql database
+        -> exporting scores to local mySql database
 
 
-com.rps2 (game extension)
+com.rps2.Rps2Runner (game extension)
 
         -> extented version includes five figures: rock, paper, scissors, spock and lizard
 
@@ -36,14 +36,35 @@ com.rps2 (game extension)
 
             -> newbie -    ~73% chance of winning, ~18% chanse of losing, ~9% chanse of getting a tie
 
-com.statistics (will be created)
+        -> exporting scores to local mySql database
 
-        -> rest-app enhancement, currently can see all scores and counts games (statistics in preparation)
 
-            -> first run StatisticsApplication in com.statistics package
+com.statistics (app to manage scores for rps and rps2)
 
-            -> see all scores by sending a request : http://localhost:8080/rps/scores/
+        -> rest-app enhancement based on Spring Framework and Project Lombok lets manage scores (by using e.g. postman application)
 
-            -> count all games by sending a request : http://localhost:8080/rps/count/
+        -> first run StatisticsApplication in com.statistics package
 
-            -> adding a new result to data base is only possible by playing a game!!!
+        -> to manage standard rps app's scores send requests to : http://localhost:8080/rps/ or
+
+           to manage extended rps2 app's scores send requests to : http://localhost:8080/rps2/
+
+                -> see all scores by sending a request with : scores/
+
+                   e.g. http://localhost:8080/rps/scores/
+
+                -> count all games by sending a request with : count/
+
+                   e.g. http://localhost:8080/rps/scores/
+
+                -> delete score from database by sending a request with a parameter to : delete/
+
+                   parameter - it's id of appropriate score e.g. http://localhost:8080/rps/delete/?id=1
+
+                -> block unproper player name by sending a request with a parameter : http://localhost:8080/rps/updateName/
+
+                   parameter - it's id of appropriate score e.g. http://localhost:8080/rps/updateName/?id=1
+
+                   it'll change player name to "ulgy name disabled (admin)"
+
+        -> adding a new result to database is only possible by playing a game!!!

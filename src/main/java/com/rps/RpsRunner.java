@@ -1,15 +1,12 @@
 package com.rps;
 
 import com.rps.gameConfiguration.GameConfiguration;
-import com.statistics.StatisticsApplication;
 
 public class RpsRunner {
 
-    public static void main(String[] args) {
-
-        GameConfiguration configuration = new GameConfiguration();
-        configuration.play();
-
+    public static void main (String[] args) {
+        GameConfiguration gameConfiguration = new GameConfiguration();
+        gameConfiguration.play();
     }
 
 }

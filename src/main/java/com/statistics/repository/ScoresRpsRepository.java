@@ -1,21 +1,21 @@
 package com.statistics.repository;
 
-import com.statistics.domain.Scores;
+import com.statistics.domain.ScoresRps;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface ScoresReposiory extends CrudRepository <Scores, Long> {
+public interface ScoresRpsRepository extends CrudRepository <ScoresRps, Long> {
 
     @Override
-    Scores save(Scores score);
+    <S extends ScoresRps> S save(S entity);
 
     @Override
-    Optional<Scores> findById(Long id);
+    Optional<ScoresRps> findById(Long id);
 
     @Override
-    List<Scores> findAll();
+    List<ScoresRps> findAll();
 
     @Override
     long count();
