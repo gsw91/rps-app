@@ -63,7 +63,7 @@ com.statistics (app to manage scores for rps and rps2)
 
                    parameter - it's id of appropriate score e.g. http://localhost:8080/rps/delete/?id=1
 
-                -> block unproper player name by sending a request with a parameter : http://localhost:8080/rps/updateName/
+                -> block unproper player name by sending a request with a parameter : updateName/
 
                    parameter - it's id of appropriate score e.g. http://localhost:8080/rps/updateName/?id=1
 
