@@ -19,6 +19,8 @@ com.rps.RpsRunner
 
         -> exporting scores to local mySql database
 
+        -> can check statistics of winning games after playing
+
 
 com.rps2.Rps2Runner (game extension)
 
@@ -37,8 +39,6 @@ com.rps2.Rps2Runner (game extension)
             -> newbie -    ~73% chance of winning, ~18% chanse of losing, ~9% chanse of getting a tie
 
         -> exporting scores to local mySql database
-
-        -> can check statistics of winning games after playing
 
 
 com.statistics (app to manage scores for rps and rps2)
