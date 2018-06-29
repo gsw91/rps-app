@@ -1,7 +1,9 @@
 package com.rps2.gameConfiguration;
 
-import com.rps.gameSystem.*;
+import com.rps.gameSystem.DifficultyLevel;
+import com.rps.gameSystem.RoundsLimit;
 import com.rps.players.HumanPlayerName;
+import com.rps2.gameSystem.EndOfGame;
 import com.rps2.gameSystem.GameInformation;
 import com.rps2.gameSystem.ScoreComparision;
 import com.rps2.players.HumanPlayerProcess;

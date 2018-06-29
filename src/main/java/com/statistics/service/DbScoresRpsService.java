@@ -1,6 +1,6 @@
 package com.statistics.service;
 
-import com.statistics.Exception.NoSuchScoreIDException;
+import com.statistics.exception.NoSuchScoreIDException;
 import com.statistics.domain.ScoresRps;
 import com.statistics.repository.ScoresRpsRepository;
 import org.springframework.beans.factory.annotation.Autowired;

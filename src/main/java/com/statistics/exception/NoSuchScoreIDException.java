@@ -1,6 +1,4 @@
-package com.statistics.Exception;
-
-import javax.xml.ws.WebServiceException;
+package com.statistics.exception;
 
 public class NoSuchScoreIDException extends InternalError {
 

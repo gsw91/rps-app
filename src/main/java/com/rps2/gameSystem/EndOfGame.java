@@ -1,4 +1,6 @@
-package com.rps.gameSystem;
+package com.rps2.gameSystem;
+
+import com.rps.exceptions.RpsException;
 
 import java.util.Scanner;
 
@@ -19,8 +21,7 @@ public final class EndOfGame {
                 String command = scanner.nextLine();
                 gameInformation.showStatistics(command);
                 gameInformation.exitOrReset(command);
-
-            } catch (NumberFormatException e) {
+            } catch (RpsException e) {
                 System.out.println("Please, confirm your decision");
             }
         }

@@ -1,7 +1,7 @@
-package com.rps.gameSystem;
+package com.rps2.gameSystem;
 
 import com.rps.exceptions.RpsException;
-import com.rps.gameConfiguration.GameConfiguration;
+import com.rps2.gameConfiguration.GameConfiguration;
 
 public final class ConfirmationExitOrReset {
 

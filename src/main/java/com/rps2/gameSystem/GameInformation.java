@@ -1,6 +1,8 @@
 package com.rps2.gameSystem;
 
-import com.rps.gameSystem.ConfirmationExitOrReset;
+import com.rps.exceptions.RpsException;
+import com.rps2.dbConnection.GameStatistics;
+import com.rps2.gameSystem.ConfirmationExitOrReset;
 
 import java.util.Scanner;
 
@@ -41,7 +43,16 @@ public final class GameInformation {
         return Integer.parseInt(getLimit);
     }
 
-    public final void exitOrReset(String command) throws NumberFormatException {
+    public final void showStatistics(String command) {
+        if (command.equals("s")) {
+            GameStatistics statistics = new GameStatistics();
+            statistics.getBasicStatistics();
+            EndOfGame endOfGame = new EndOfGame();
+            endOfGame.endingGame();
+        }
+    }
+
+    public final void exitOrReset(String command) throws RpsException {
         ConfirmationExitOrReset confirmationExitOrReset = new ConfirmationExitOrReset();
         Scanner scanner = new Scanner(System.in);
 
@@ -49,21 +60,20 @@ public final class GameInformation {
             System.out.println("Do you really want to exit the game ? \n Insert y to exit, or any other key to return to the game.");
             try {
                 confirmationExitOrReset.confirmExit(scanner.nextLine());
-            } catch (NumberFormatException o) {
+            } catch (RpsException o) {
                 System.out.println("Insert correct key!");
             }
         } else if (command.equals("n")) {
             System.out.println("Do you want to play one more time ? \n Insert y to begin, or any other key to return to the game.");
             try {
                 confirmationExitOrReset.confirmReset(scanner.nextLine());
-            } catch (NumberFormatException x) {
+            } catch (RpsException x) {
                 System.out.println("Insert correct key!");
             }
         } else {
-            throw new NumberFormatException();
+            throw new RpsException();
         }
     }
-
 
     public final void checkScore(int humanPlayerScore, int limitOfTheGame) {
         if (humanPlayerScore == limitOfTheGame) {

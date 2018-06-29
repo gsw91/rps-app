@@ -11,7 +11,7 @@ com.rps.RpsRunner
 
             -> hard -      25% chance of winning, 50% chanse of losing, 25% chanse of getting a tie
 
-            -> medium -    1/3 chance of winning, 1/3 chanse of losing, 1/3 chanse of getting a tie
+            -> medium -    ~33% chance of winning, ~33% chanse of losing, ~33% chanse of getting a tie
 
             -> easy -      25% chance of winning, 50% chanse of losing, 25% chanse of getting a tie
 
@@ -40,6 +40,7 @@ com.rps2.Rps2Runner (game extension)
 
         -> exporting scores to local mySql database
 
+        -> can check statistics of winning games after playing
 
 com.statistics (app to manage scores for rps and rps2)
 

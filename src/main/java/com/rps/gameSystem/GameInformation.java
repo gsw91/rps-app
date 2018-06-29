@@ -1,6 +1,7 @@
 package com.rps.gameSystem;
 
 import com.rps.dbConnection.GameStatistics;
+import com.rps.exceptions.RpsException;
 
 import java.util.Scanner;
 
@@ -51,18 +52,19 @@ public final class GameInformation {
     public final void exitOrReset(String command) throws NumberFormatException {
         ConfirmationExitOrReset confirmationExitOrReset = new ConfirmationExitOrReset();
         Scanner scanner = new Scanner(System.in);
+
         if (command.equals("x")) {
             System.out.println("Do you really want to exit the game ? \n Insert y to exit, or any other key to return to the game.");
             try {
                 confirmationExitOrReset.confirmExit(scanner.nextLine());
-            } catch (NumberFormatException o) {
+            } catch (RpsException o) {
                 System.out.println("Insert correct key!");
             }
         } else if (command.equals("n")) {
             System.out.println("Do you want to play one more time ? \n Insert y to begin, or any other key to return to the game.");
             try {
                 confirmationExitOrReset.confirmReset(scanner.nextLine());
-            } catch (NumberFormatException x) {
+            } catch (RpsException x) {
                 System.out.println("Insert correct key!");
             }
         } else {
